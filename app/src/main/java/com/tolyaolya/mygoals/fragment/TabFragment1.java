@@ -38,15 +38,7 @@ public class TabFragment1 extends Fragment{
             @Override
             public void onClick(View v) {
                 Log.d(LOG_TAG, "Button click in Fragment2");
-                //Intent intent = new Intent(MainActivity.this, AddGoalActivity.class);
-                //startActivity(intent);
-               // getActivity().startActivity(new Intent(getActivity(), AddGoalActivity.class));
-               // String selectedValue =(String) (list.getItemAtPosition(position));
-
-               // getActivity().finish();
                 Intent intent = new Intent(getActivity().getApplicationContext(), AddGoalActivity.class);
-                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-              //  intent.putExtra("w", selectedValue);
                 startActivity(intent);
             }
         });

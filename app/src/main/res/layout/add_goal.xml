@@ -58,7 +58,8 @@
                 style="@style/edit_text_add"
                 android:id="@+id/edit_end"
                 android:hint="@string/end"
-                android:inputType="date">
+                android:inputType="date"
+                android:clickable="true">
             </EditText>
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
@@ -69,6 +70,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_done_black_24dp"
         app:fabSize="normal"
+        android:clickable="true"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         app:layout_anchorGravity="bottom|right"

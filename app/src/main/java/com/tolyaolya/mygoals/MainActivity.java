@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
       //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

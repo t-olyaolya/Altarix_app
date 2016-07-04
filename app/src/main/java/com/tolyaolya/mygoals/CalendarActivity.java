@@ -1,4 +1,5 @@
 package com.tolyaolya.mygoals;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,18 +11,35 @@ import android.os.Bundle;
 /**
  * Created by 111 on 19.06.2016.
  */
+
+
 public class CalendarActivity extends AppCompatActivity {
+
     private Toolbar toolbar;
+    private CalendarView mCalendarView;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView1);
-       // calendarView.setFirstDayOfWeek(100);
+        mCalendarView = (CalendarView) findViewById(R.id.calendarView1);
+        //calendarView.setFirstDayOfWeek(100);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year,int month, int dayOfMonth) {
 
-
+                // При выборе любой даты отображаем Toast сообщение с данными о выбранной дате (Год, Месяц, День):
+                Toast.makeText(getApplicationContext(),
+                        "Год: " + year + "\n" +
+                                "Месяц: " + month + "\n" +
+                                "День: " + dayOfMonth,
+                        //добавить события
+                        Toast.LENGTH_SHORT).show();
+            }});
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

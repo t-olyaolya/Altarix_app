@@ -22,6 +22,9 @@
     <string name="detail">Detail</string>
     <string name="start">Start</string>
     <string name="end">End</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="completed">Completed</string>
 
 
 
