@@ -87,16 +87,19 @@ public class AddGoalActivity extends AppCompatActivity implements View.OnClickLi
                 showDialog(DIALOG_DATE);
                 break;
             case R.id.fab_2:
-               // dbActions();
                 String name = mEditText1.getText().toString();
                 String details = mEditText2.getText().toString();
-                String date="myDay"+"myMonth"+"myYear";
+                String day=String.valueOf(myDay);
+                String month=String.valueOf(myMonth);
+                String year=String.valueOf(myYear);
+                String date=day+month+year;
                 ContentValues cv = new ContentValues();
                 try {
-                    cv.put("_id", 1);
+                  //  cv.put("_id", 1);
                     cv.put("name", name);
                     cv.put("details", details);
                     cv.put("date", date);
+                    cv.put("flag",0);
                     DbHelper.getInstance().getWritableDatabase().insert("Bd1", null, cv);
                     mToast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_LONG).show();
                 }

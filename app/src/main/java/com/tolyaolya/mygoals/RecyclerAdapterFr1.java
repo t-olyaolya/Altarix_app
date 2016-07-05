@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapterFr1 extends RecyclerView.Adapter<RecyclerAdapterFr1.ViewHolder> {
 
-    private String[] mDataset;
+    private String[] mDataset2;
 
     // класс view holder-а с помощью которого мы получаем ссылку на каждый элемент
     // отдельного пункта списка
@@ -26,29 +26,29 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         public ViewHolder(View v) {
             super(v);
-            mTextView = (TextView) v.findViewById(R.id.tv_recycler_item);
-            mTextView2=(TextView) v.findViewById(R.id.tv_recycler_item2);
-            mTextView3=(TextView) v.findViewById(R.id.tv_recycler_item3);
-            mTextView4=(TextView) v.findViewById(R.id.tv_recycler_item4);
+            mTextView = (TextView) v.findViewById(R.id.name_fr);
+            mTextView2=(TextView) v.findViewById(R.id.detail_fr);
+            mTextView3=(TextView) v.findViewById(R.id.date_fr);
+          //  mTextView4=(TextView) v.findViewById(R.id.tv_recycler_item4);
         }
     }
 
     // Конструктор
-    public RecyclerAdapter(String[] dataset) {
-        mDataset = dataset;
+    public RecyclerAdapterFr1(String[] dataset) {
+        mDataset2 = dataset;
     }
 
     // Создает новые views (вызывается layout manager-ом)
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public RecyclerAdapterFr1.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                             int viewType) {
         // create a new view
-       // View v = LayoutInflater.from(parent.getContext())
+        // View v = LayoutInflater.from(parent.getContext())
         //        .inflate(R.layout.statistic_item, parent, false);
 
         // тут можно программно менять атрибуты лэйаута (size, margins, paddings и др.)
 
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.statistic_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_list, parent, false);
 
 
 
@@ -60,13 +60,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.mTextView.setText(mDataset[position]);
+        holder.mTextView.setText(mDataset2[position]);
 
     }
 
     // Возвращает размер данных (вызывается layout manager-ом)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset2.length;
     }
 }
