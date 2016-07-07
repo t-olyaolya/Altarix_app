@@ -4,6 +4,7 @@ package com.tolyaolya.mygoals.fragment;
  * Created by 111 on 20.06.2016.
  */
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,14 +20,20 @@ import android.widget.Button;
 
 import com.tolyaolya.mygoals.AddGoalActivity;
 import com.tolyaolya.mygoals.DbHelper;
+import com.tolyaolya.mygoals.Goals;
 import com.tolyaolya.mygoals.MainActivity;
 import com.tolyaolya.mygoals.R;
+import com.tolyaolya.mygoals.RecyclerAdapter;
 import com.tolyaolya.mygoals.RecyclerAdapterFr1;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TabFragment1 extends Fragment{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    List<Goals> goalses;
     FloatingActionButton mFab;
     DbHelper mDbHelper;
     SQLiteDatabase mDb;
@@ -43,7 +50,7 @@ public class TabFragment1 extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment1, container, false);
-        String[] myDataset= getDataSet();
+        ArrayList<String> myDataset= getDataSet();
         mDbHelper = new DbHelper(getContext());
         mDb=mDbHelper.getReadableDatabase();
 
@@ -65,12 +72,15 @@ public class TabFragment1 extends Fragment{
         return v;
     }
 
-    private String[] getDataSet() {
 
-        String[] mDataSet = new String[3];
-        mDataSet[0]="WEEK";
-        mDataSet[1]="MONTH";
-        mDataSet[2]="YEAR";
+
+    private ArrayList<String> getDataSet() {
+
+        ArrayList<String> mDataSet = new ArrayList();
+        mDataSet.add("iz bd");
+        mDataSet.add("iz bd");
+        mDataSet.add("iz bd");
+
 
         return mDataSet;
     }

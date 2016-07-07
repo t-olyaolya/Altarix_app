@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class RecyclerAdapterFr1 extends RecyclerView.Adapter<RecyclerAdapterFr1.ViewHolder> {
 
-    private String[] mDataset2;
+    private ArrayList<String> mDataset2;
 
     // класс view holder-а с помощью которого мы получаем ссылку на каждый элемент
     // отдельного пункта списка
@@ -34,7 +36,7 @@ public class RecyclerAdapterFr1 extends RecyclerView.Adapter<RecyclerAdapterFr1.
     }
 
     // Конструктор
-    public RecyclerAdapterFr1(String[] dataset) {
+    public RecyclerAdapterFr1(ArrayList<String> dataset) {
         mDataset2 = dataset;
     }
 
@@ -60,13 +62,13 @@ public class RecyclerAdapterFr1 extends RecyclerView.Adapter<RecyclerAdapterFr1.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.mTextView.setText(mDataset2[position]);
+        holder.mTextView.setText(mDataset2.get(position));
 
     }
 
     // Возвращает размер данных (вызывается layout manager-ом)
     @Override
     public int getItemCount() {
-        return mDataset2.length;
+        return mDataset2.size();
     }
 }
