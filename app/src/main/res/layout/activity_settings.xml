@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".SettingActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sort"
+        android:text="@string/sort"
+        android:textColor="@color/primary_text"
+        android:textSize="18sp"
+        android:layout_marginLeft="@dimen/indent"
+        android:layout_marginRight="@dimen/indent"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg">
+
+        <RadioButton
+            android:id="@+id/radio_null"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="1"
+            android:text="@string/def"/>
+
+        <RadioButton
+            android:id="@+id/radio_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_weight="1"
+            android:text="@string/namesort"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apply"
+        android:id="@+id/button"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/indent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:background="@color/secondary_text"
+        android:layout_marginTop="@dimen/indent_small"
+        android:layout_marginBottom="@dimen/indent_small"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+             <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/not"
+             android:text="@string/notification"
+             android:textColor="@color/primary_text"
+             android:textSize="18sp"
+             android:layout_marginLeft="@dimen/indent"
+             android:layout_marginRight="@dimen/indent"/>
+
+            <Switch
+                android:layout_width="208dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/switch1"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/indent"/>
+        </LinearLayout>
+
+
+</LinearLayout>
+
+</ScrollView>

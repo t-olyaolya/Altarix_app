@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.a111.myorganizer.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/delete_all"
         android:orderInCategory="1"
         android:title="@string/m4"
         app:showAsAction="never" />

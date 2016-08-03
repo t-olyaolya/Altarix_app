@@ -1,5 +1,6 @@
 package com.tolyaolya.mygoals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,49 +9,66 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by 111 on 21.06.2016.
  */
 public class StatisticActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private Toolbar toolbar;
+    @BindView(R.id.my_recycler_view) RecyclerView mRecyclerView;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindString(R.string.Week) String week;
+    @BindString(R.string.Month) String month;
+    @BindString(R.string.Year) String year;
+    @BindString(R.string.total) String total;
+    @BindString(R.string.completed) String cmp;
+    @BindString(R.string.uncompleted) String uncmp;
+    @BindString(R.string.progress) String progress;
+    RecyclerView.Adapter mAdapter;
+    RecyclerView.LayoutManager mLayoutManager;
+    static Context mContext;
+    private List<StatisticHandler> statistic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        String[] myDataset= getDataSet();
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-        // если мы уверены, что изменения в контенте не изменят размер layout-а RecyclerView
-        // передаем параметр true - это увеличивает производительность
         mRecyclerView.setHasFixedSize(true);
-
-        // используем linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        // создаем адаптер
-        mAdapter = new RecyclerAdapter(myDataset);
-        mRecyclerView.setAdapter(mAdapter);
+        DbHelper mDbHelper=new DbHelper(this,DbHelper.DB_NAME,null,DbHelper.VERSION);
+        int i=mDbHelper.getWeekDone()*100/mDbHelper.getWeekAll();
+        int j=mDbHelper.getMonthDone()*100/mDbHelper.getMonthAll();
+        int k=mDbHelper.getYearDone()*100/mDbHelper.getYearAll();
+        statistic = new ArrayList<>();
+        statistic.add(new StatisticHandler(week, total+": " +mDbHelper.getWeekAll(),cmp+": " + mDbHelper.getWeekDone(),
+                uncmp+": "+mDbHelper.getWeekMissing(),progress+": "+i+" %"));
+        statistic.add(new StatisticHandler(month, total+": " +mDbHelper.getMonthAll(),cmp+": " + mDbHelper.getMonthDone(),
+                uncmp+": "+mDbHelper.getMonthMissing(),progress+": "+j+" %"));
+        statistic.add(new StatisticHandler(year, total+": " +mDbHelper.getYearAll(),cmp+": "+ mDbHelper.getYearDone(),
+                uncmp+": "+mDbHelper.getYearMissing(),progress+": "+k+" %"));
+        RecyclerAdapter mRecyclerAdapter=new RecyclerAdapter(statistic);
+        mRecyclerView.setAdapter(mRecyclerAdapter);
+
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_about, menu);
+        getMenuInflater().inflate(R.menu.menu_statistic, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
 
@@ -69,21 +87,18 @@ public class StatisticActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent=new Intent(StatisticActivity.this,SettingActivity.class);
+            startActivity(intent);
+            //return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-    private String[] getDataSet() {
 
-        String[] mDataSet = new String[3];
-        mDataSet[0]="WEEK";
-        mDataSet[1]="MONTH";
-        mDataSet[2]="YEAR";
 
-        return mDataSet;
+    public static Context getContext() {
+        return mContext;
     }
+
 }

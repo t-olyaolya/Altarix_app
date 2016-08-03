@@ -22,7 +22,7 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="4"
-        android:title="@string/m4"
+        android:title="@string/m8"
         app:showAsAction="never" />
 
 </menu>

@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.tolyaolya.mygoals.R;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by 111 on 11.06.2016.
  */
@@ -27,6 +29,7 @@ public class AboutFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view1 = inflater.inflate(R.layout.fragment_about, container, false);
+        ButterKnife.bind(this,view1);
         return view1;
 
 

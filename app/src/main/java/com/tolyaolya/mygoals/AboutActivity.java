@@ -11,59 +11,53 @@ import android.view.MenuItem;
 
 import com.tolyaolya.mygoals.fragment.AboutFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * Created by 111 on 11.06.2016.
  */
 public class AboutActivity extends AppCompatActivity {
-    private Toolbar toolbar;
+    @BindView(R.id.toolbar) Toolbar toolbar;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-      //  AboutFragment myFrag = new AboutFragment();
-      //  getSupportFragmentManager().beginTransaction()
-        //        .replace(R.id.fragment_about, myFrag).commit();
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_about, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        switch (id) {
+            case R.id.action_goals:
+                Intent intent = new Intent(AboutActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
 
+            case R.id.action_calendar:
+                intent = new Intent(AboutActivity.this, CalendarActivity.class);
+                startActivity(intent);
+                break;
 
-        if (id==R.id.action_goals) {
-            Intent intent = new Intent(AboutActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
+            case R.id.action_static:
+                intent = new Intent(AboutActivity.this, StatisticActivity.class);
+                startActivity(intent);
+                break;
 
-        if (id==R.id.action_calendar) {
-            Intent intent = new Intent(AboutActivity.this, CalendarActivity.class);
-            startActivity(intent);
-        }
-
-        if (id==R.id.action_static) {
-            Intent intent = new Intent(AboutActivity.this, StatisticActivity.class);
-            startActivity(intent);
-        }
-
-
-
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.action_settings:
+                intent=new Intent(AboutActivity.this,SettingActivity.class);
+                startActivity(intent);
+                break;
+               // return true;
         }
 
         return super.onOptionsItemSelected(item);

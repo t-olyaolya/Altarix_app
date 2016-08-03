@@ -27,6 +27,8 @@
         android:onClick="onClick"
         android:selectedWeekBackgroundColor="@color/primary_light"
         android:weekNumberColor="@color/primary_dark"
-        android:weekSeparatorLineColor="@color/accent" />
+        android:weekSeparatorLineColor="@color/accent"
+        android:layout_marginLeft="@dimen/indent"
+        android:layout_marginRight="@dimen/indent"/>
 
 </LinearLayout>

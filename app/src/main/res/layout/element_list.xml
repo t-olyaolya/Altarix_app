@@ -1,67 +1,110 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
+<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:orientation="horizontal">
+              android:orientation="horizontal"> -->
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardCornerRadius="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/primary_light"
-        >
-
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_assignment_black_24dp" >
-    </ImageView>
-<LinearLayout
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    card_view:cardCornerRadius="2dp"
+    android:layout_marginLeft="@dimen/indent"
+    android:layout_marginRight="@dimen/indent"
+    android:layout_marginTop="@dimen/indent_small"
+    android:layout_marginBottom="@dimen/indent_small"
+    android:background="@color/primary_light"
 
-    <TextView
-        android:id="@+id/name_fr"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginLeft="36dp"
-        android:text=""
-        android:textColor="@color/primary_text"
-        android:textSize="30sp" >
-    </TextView>
+    >
 
-    <TextView
-        android:id="@+id/detail_fr"
-        android:layout_width="fill_parent"
+        <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text=""
-        android:textColor="@color/primary_text"
-        android:textSize="30sp" >
-    </TextView>
+        android:orientation="vertical"
+        >
 
-    <TextView
-        android:id="@+id/date_fr"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text=""
-        android:textColor="@color/primary_text"
-        android:textSize="30sp" >
-    </TextView>
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal_name"
+                    android:textSize="30sp"
+                    android:layout_marginLeft="@dimen/indent"
+                    android:layout_marginRight="@dimen/indent"
+                    android:id="@+id/name"
+                    />
+                <TextView
+                    android:id="@+id/name_fr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/primary_dark"
+                    android:textSize="30sp"
+                    >
+                    </TextView>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail"
+                android:textSize="30sp"
+                android:layout_marginLeft="@dimen/indent"
+                android:layout_marginRight="@dimen/indent"
+                android:id="@+id/detail"/>
+            <TextView
+                android:id="@+id/detail_fr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/primary_dark"
+                android:textSize="30sp" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textSize="30sp"
+                android:layout_marginLeft="@dimen/indent"
+                android:layout_marginRight="@dimen/indent"
+                android:id="@+id/date"/>
+            <TextView
+                android:id="@+id/date_fr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/primary_dark"
+                android:textSize="30sp" >
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+  <!--  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView2"/>
+
+
+</LinearLayout> -->

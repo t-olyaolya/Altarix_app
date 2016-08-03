@@ -3,6 +3,7 @@
           package="com.tolyaolya.mygoals">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 
 
@@ -38,7 +39,17 @@
                   android:theme="@style/MyMaterialTheme">
         </activity>
         <activity android:name=".AddGoalActivity"
-                  android:label="Add Goal"
+                  android:label="@string/m6"
+                  android:theme="@style/MyMaterialTheme">
+
+        </activity>
+        <activity android:name=".EditGoal"
+                  android:label="@string/m7"
+                  android:theme="@style/MyMaterialTheme">
+
+        </activity>
+        <activity android:name=".SettingActivity"
+                  android:label="@string/action_settings"
                   android:theme="@style/MyMaterialTheme">
 
         </activity>
